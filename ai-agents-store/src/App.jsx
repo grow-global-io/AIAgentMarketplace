@@ -11,13 +11,15 @@ import CodeReviewer from './components/CodeReviewer';
 import ContentWriter from './components/ContentWriter';
 import HowToCode from './components/HowToCode';
 import AgentCard from './components/AgentCard';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const Home = () => (
   <Container maxW="container.xl" py={10}>
     <Heading textAlign="center" mb={10}>AI Agents Marketplace</Heading>
     <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
       <AgentCard
-        title="Resume Analyzer"
+        title="Resume Analyser"
         description="Upload your resume and get personalized career advice"
         image="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
         to="/resume-analyzer"
@@ -46,14 +48,18 @@ const Home = () => (
 
 function App() {
   return (
-    <Box minH="100vh" bg="gray.50">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
-        <Route path="/code-reviewer" element={<CodeReviewer />} />
-        <Route path="/content-writer" element={<ContentWriter />} />
-        <Route path="/how-to-code" element={<HowToCode />} />
-      </Routes>
+    <Box minH="100vh" bg="gray.50" display="flex" flexDirection="column">
+      <Header />
+      <Box flex="1" pt="60px">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
+          <Route path="/code-reviewer" element={<CodeReviewer />} />
+          <Route path="/content-writer" element={<ContentWriter />} />
+          <Route path="/how-to-code" element={<HowToCode />} />
+        </Routes>
+      </Box>
+      <Footer />
     </Box>
   );
 }
